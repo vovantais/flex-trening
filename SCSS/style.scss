@@ -1,0 +1,345 @@
+// Подключаем шрифты
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700&display=swap");
+// Переменные на шрифт
+$fontFamily: "Lato";
+$fontSZ: 18px;
+$fontWeight: 400;
+$fontStyle: normal;
+$fontTransform: none;
+$fontColor: black;
+@import "_nullstyle.scss";
+// Миксины для текста
+@mixin FontText($fontSZ, $fontWeight, $fontStyle, $fontTransform, $fontColor) {
+   font-size: $fontSZ;
+   font-weight: $fontWeight;
+   font-style: $fontStyle;
+   text-transform: $fontTransform;
+   color: $fontColor;
+}
+.wrapper {
+   min-height: 100%; // чтобы была на всю высоту экрана
+   overflow: hidden; // чтобы не чего не вылезло за наш экран
+   display: flex;
+   flex-direction: column;
+   .hed {
+      padding: 50px 0;
+      background: #445162;
+   }
+
+   .content {
+      flex: 1 1 auto; // разрешаем увеличиваться для того что бы прижал футер
+   }
+   .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 15px;
+   }
+   .header {
+      &__items {
+         display: flex;
+         justify-content: space-between;
+      }
+      &__body {
+         color: #ffffff;
+         padding: 0 30px 0 0; // добавил padding с права для того если контента было много не косался картинки.
+      }
+      &__title {
+         text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+         font-size: 60px;
+         font-weight: 400;
+         margin: 0 0 40px 0;
+         white-space: nowrap;
+      }
+      &__list {
+         font-size: 20px;
+         font-weight: 400;
+         line-height: 36px;
+         text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+      }
+      &__list li {
+         background: url(../img/icon.png) left no-repeat; // left вырвнивает эти иконки по центру текста
+         padding: 0 0 0 36px;
+      }
+      &__list li:last-child {
+         margin: 0;
+      }
+      &__images img {
+         max-width: 100%;
+         height: auto;
+         object-fit: cover;
+      }
+   }
+   .about-flex {
+      padding: 50px 0;
+   }
+   .about {
+      &__row {
+         display: flex;
+      }
+      &__image {
+         flex: 0 0 430px; // запрещаем увеличиваться уменьшаться и указываем фиксированную ширину 430px
+      }
+      &__body {
+         flex: 1 1 auto; //разрешаем увеличиваться и уменьшаться
+         padding: 0 0 0 40px;
+      }
+      &__title {
+         margin: 0 0 35px 0;
+         white-space: nowrap;
+      }
+      &__text p {
+         margin: 0 0 25px 0;
+         color: #333333;
+         font-size: 16px;
+         font-weight: 400;
+         line-height: 24px;
+      }
+   }
+   .title {
+      color: #445161;
+      font-size: 30px;
+      font-weight: 400;
+      line-height: 36px;
+   }
+   .colum {
+      background: #f5f5f5;
+      padding: 50px 0;
+      &__title {
+         text-align: center; // вот так у нас делаеться элемент котрорый повторяеться
+         margin: 0 30px 0 0;
+         padding: 0 0 30px 0;
+      }
+      &__row {
+         display: flex;
+         flex-wrap: wrap;
+         margin: 0 -8px;
+         //для того что бы сделать отступы между колоками и тестом мы раздивигаем наш колоники отрицательным margin на половину
+      }
+      &__colums {
+         // тут мы сдвигаем наши колонки на тотже размер padding
+         padding: 0 8px;
+         flex: 0 1 50%; // запрещаем увеличиваться(0) разрешаем уменьшаться (1) и размер 50%
+         margin: 0 0 30px 0;
+      }
+   }
+   .item {
+      &__row {
+         display: flex;
+      }
+      &__image {
+         flex: 0 0 200px;
+      }
+      &__body {
+         flex: 1 1 auto;
+         padding: 0 0 0 15px;
+      }
+      &__title {
+         color: #445161;
+         font-size: 24px;
+         font-weight: 400;
+         line-height: 30px;
+         margin: 0 0 15px 0;
+      }
+      &__text {
+         color: #333333;
+         font-size: 16px;
+         font-weight: 400;
+         line-height: 24px;
+      }
+   }
+   .cards {
+      padding: 50px 0;
+      &__title {
+         text-align: center;
+         margin: 0 0 30px 0;
+      }
+      &__body {
+         max-width: 990px;
+         margin: 0 auto;
+      }
+      &__row {
+         display: flex;
+         margin: 0 -22.5px;
+      }
+      &__column {
+         flex: 0 1 33.333%;
+         padding: 0 22.5px;
+         display: flex; // дополнительно делаем флекс контенерами для того чтобы они имели один и тотже размер
+      }
+      &__item {
+         background: #445162;
+         color: white;
+         border-radius: 5px;
+         border: 1px solid #445162;
+         display: flex; // также делаем сдесь
+         flex-direction: column;
+      }
+      &__subtitle {
+         padding: 18px 0 12px 0;
+         text-align: center;
+         font-size: 24px;
+         font-weight: 400;
+         line-height: 30px;
+         text-transform: uppercase;
+      }
+      &__label {
+         text-align: center;
+         padding: 15px 0;
+         background: white;
+         color: #445162;
+         font-size: 40px;
+         font-weight: 400;
+         line-height: 30px;
+      }
+      &__text {
+         font-size: 14px;
+         font-weight: 400;
+         line-height: 24px;
+         padding: 20px;
+         flex: 1 1 auto; //самый большой элемент в данном случае текст прижимает кнопки в ряд
+      }
+      &__text p {
+         margin: 0 0 30px 0;
+      }
+      &__text p:last-child {
+         margin: 0;
+      }
+      &__bth {
+         display: block;
+         text-align: center;
+         margin: 20px;
+         height: 40px;
+         background: white;
+         border-radius: 5px;
+         color: #445161;
+         font-size: 18px;
+         font-weight: 400;
+         line-height: 40px;
+      }
+   }
+   .footer {
+      background: #f5f5f5;
+      &__row {
+         height: 65px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+      }
+      &__text {
+         color: #445162;
+         font-size: 12px;
+         font-weight: 400;
+         line-height: 24px;
+         letter-spacing: 0.3px;
+      }
+   }
+}
+@media screen and (max-width: 1200px) {
+   .container {
+      max-width: 990px;
+      margin: 0 auto;
+      padding: 0 15px;
+   }
+}
+@media screen and (max-width: 990px) {
+   .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 15px;
+   }
+}
+@media screen and (max-width: 780px) {
+   .container {
+      max-width: 550px;
+      margin: 0 auto;
+      padding: 0 15px;
+   }
+   .header {
+      &__items {
+         display: flex;
+         flex-direction: column;
+      }
+      &__body {
+         margin-bottom: 30px;
+      }
+      &__title p {
+         font-size: 50px;
+      }
+   }
+   .about {
+      &__row {
+         display: flex;
+         flex-direction: column;
+      }
+      &__image {
+         flex: 1 1 auto; // разрешаем увеличиваться и уменьшаться
+      }
+      &__image img {
+         max-width: 100%;
+         height: auto;
+         object-fit: cover;
+      }
+      &__body {
+         flex: 1 1 auto; //разрешаем увеличиваться и уменьшаться
+         padding: 0 0 0 40px;
+         margin-top: -200px;
+      }
+   }
+   .colum {
+      &__title {
+         text-align: left;
+      }
+      &__row {
+         display: flex;
+         flex-direction: column;
+         flex-wrap: wrap;
+         margin: 0 -8px;
+         //для того что бы сделать отступы между колоками и тестом мы раздивигаем наш колоники отрицательным margin на половину
+      }
+   }
+   .cards {
+      &__row {
+         display: flex;
+         flex-direction: column;
+         margin: 0;
+      }
+      &__column {
+         padding: 0;
+         margin-bottom: 50px;
+         display: flex; // дополнительно делаем флекс контенерами для того чтобы они имели один и тотже размер
+      }
+      &__column:last-child {
+         margin-bottom: 0;
+      }
+   }
+}
+@media screen and (max-width: 550px) {
+   .container {
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 0 15px;
+   }
+   .item {
+      &__row {
+         display: flex;
+         flex-direction: column;
+      }
+   }
+   .cards {
+      &__row {
+         display: flex;
+         flex-direction: column;
+         margin: 0 -22.5px;
+      }
+      &__column {
+         flex: 0 1 33.333%;
+         margin-bottom: 50px;
+         padding: 0 22.5px;
+         display: flex; // дополнительно делаем флекс контенерами для того чтобы они имели один и тотже размер
+      }
+      &__column:last-child {
+         margin-bottom: 0;
+      }
+   }
+}
